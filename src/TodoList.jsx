@@ -25,7 +25,7 @@ class TodoList extends Component {
         {this.state.items.map(item => (
           <TodoItem item={item} />
         ))}
-        <div className="header">
+        <div className="newTodo">
           <input
             placeholder="Task"
             value={this.state.newItem}
