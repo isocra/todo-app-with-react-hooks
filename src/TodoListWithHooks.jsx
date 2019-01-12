@@ -11,8 +11,8 @@ const TodoList = () => {
 
   return (
     <div className="todoListMain">
-      {items.map(item => (
-        <TodoItem item={item} />
+    {this.state.items.map((item, index) => (
+        <TodoItem key={index} item={item} />
       ))}
       <NewTodoForm addItem={addNewItem}/>
     </div>

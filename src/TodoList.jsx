@@ -1,40 +1,27 @@
 import React, { Component } from "react";
 import TodoItem from "./TodoItem";
+import AddTodoForm from "./AddToDoForm";
 
 class TodoList extends Component {
   constructor() {
     super();
 
     this.state = {
-      items: [],
-      newItem: ""
+      items: []
     };
   }
 
-  onChangeNewItem = event => {
-    this.setState({ newItem: event.target.value });
-  };
-
-  onClick = () => {
-    this.setState({ items: [...this.state.items, this.state.newItem] });
+  addItem = (newItem) => {
+    this.setState({ items: [...this.state.items, newItem] });
   };
 
   render() {
     return (
       <div className="todoListMain">
-        {this.state.items.map(item => (
-          <TodoItem item={item} />
+        {this.state.items.map((item, index) => (
+          <TodoItem key={index} item={item} />
         ))}
-        <div className="newTodo">
-          <input
-            placeholder="Task"
-            value={this.state.newItem}
-            onChange={this.onChangeNewItem}
-          />
-          <button type="submit" onClick={this.onClick}>
-            Add To Do
-          </button>
-        </div>
+        <AddTodoForm addItem={this.addItem}/>
       </div>
     );
   }
