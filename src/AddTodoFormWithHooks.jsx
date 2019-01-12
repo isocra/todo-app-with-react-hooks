@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const NewTodoForm = ({addItem}) => {
+const AddTodoForm = ({addItem}) => {
   const [newItem, setItem] = useState("");
 
   const onChangeNewItem = event => {
@@ -25,4 +25,4 @@ const NewTodoForm = ({addItem}) => {
   );
 };
 
-export default NewTodoForm;
+export default AddTodoForm;

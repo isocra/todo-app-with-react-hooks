@@ -194,7 +194,7 @@ export default App;
 ```jsx
 import React, { Component } from "react";
 import TodoItem from "./TodoItem";
-import AddTodoForm from "./AddToDoForm";
+import AddTodoForm from "./AddTodoForm";
 
 class TodoList extends Component {
 
@@ -303,7 +303,7 @@ and it takes the initial value as a parameter
 ```jsx
 import React, { useState } from "react";
 import TodoItem from "./TodoItem";
-import NewTodoForm from "./NewTodoForm";
+import AddTodoForm from "./AddTodoFormWithHooks";
 
 const TodoList = () => {
   const [items, setItems] = useState([]);
@@ -314,10 +314,10 @@ const TodoList = () => {
 
   return (
     <div className="todoListMain">
-    {this.state.items.map((item, index) => (
+    {items.map((item, index) => (
         <TodoItem key={index} item={item} />
       ))}
-      <NewTodoForm addItem={addNewItem}/>
+      <AddTodoForm addItem={addNewItem}/>
     </div>
   );
 };
@@ -329,7 +329,7 @@ export default TodoList;
 ```jsx
 import React, { useState } from "react";
 
-const NewTodoForm = ({addItem}) => {
+const AddTodoForm = ({addItem}) => {
   const [newItem, setItem] = useState("");
 
   const onChangeNewItem = event => {
@@ -352,7 +352,7 @@ const NewTodoForm = ({addItem}) => {
   );
 };
 
-export default NewTodoForm;
+export default AddTodoForm;
 ```
 ---
 # useState has some interesting features

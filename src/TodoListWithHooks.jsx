@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import TodoItem from "./TodoItem";
-import NewTodoForm from "./NewTodoForm";
+import AddTodoForm from "./AddTodoFormWithHooks";
 
 const TodoList = () => {
   const [items, setItems] = useState([]);
@@ -11,10 +11,10 @@ const TodoList = () => {
 
   return (
     <div className="todoListMain">
-    {this.state.items.map((item, index) => (
+    {items.map((item, index) => (
         <TodoItem key={index} item={item} />
       ))}
-      <NewTodoForm addItem={addNewItem}/>
+      <AddTodoForm addItem={addNewItem}/>
     </div>
   );
 };
