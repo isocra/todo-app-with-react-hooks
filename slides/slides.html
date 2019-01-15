@@ -428,8 +428,20 @@ const [state, dispatch] = useReducer(reducer, initialState);
 ```
 Accepts a reducer of type `(state, action) => newState`
 
-This is a better fit when you have multiple actions (e.g. a counter which you can reset, 
-imcrement and decrement).
+This is a better fit for multiple actions (e.g. add and remove items from our Todo list): 
+```jsx
+const [items, dispatch] = useReducer((state, action) => {
+  switch (action.type) {
+    case 'add':
+      // ... same as before ...
+    case 'remove':
+      // keep every item except the one we want to remove
+      return state.filter((item) => item != action.item);
+    default:
+      return state;
+  }
+}, []);
+```
 
 Again, this only covers local state currently...
 ]
